@@ -1,9 +1,24 @@
-import { SpriteSheet } from './sprite-sheet'
+import { Frame, SpriteSheet } from './sprite-sheet'
 
 export interface SpriteAnimatorOptions {
   imageUrl: string
   sheet: SpriteSheet
   animation: string
+}
+
+function buildKeyframes(name: string, frames: Frame[]): string {
+  const n = frames.length
+  const steps: string[] = []
+  for (let i = 0; i < n; i++) {
+    const pct = (i / n) * 100
+    const f = frames[i]
+    const decls = [`background-position: ${-f.x}px ${-f.y}px;`]
+    steps.push(`${pct}% { ${decls.join(' ')} }`)
+  }
+  const last = frames[n - 1]
+  const lastDecls = [`background-position: ${-last.x}px ${-last.y}px;`]
+  steps.push(`100% { ${lastDecls.join(' ')} }`)
+  return `@keyframes ${name} {\n${steps.join('\n')}\n}`
 }
 
 export class SpriteAnimator {
