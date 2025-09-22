@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAyB,MAAM,mBAAmB,CAAA","sourcesContent":["export { SpriteAnimator, SpriteAnimatorOptions } from './sprite-animator'\n"]}

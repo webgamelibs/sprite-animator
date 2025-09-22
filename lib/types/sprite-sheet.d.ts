@@ -13,4 +13,5 @@ export type SpriteSheet = {
     frames: Record<string, Frame>;
     animations: Record<string, Animation>;
 };
+export declare function getCachedSheetId(imageUrl: string, sheet: SpriteSheet): string;
 //# sourceMappingURL=sprite-sheet.d.ts.map
